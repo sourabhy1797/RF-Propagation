@@ -398,8 +398,8 @@ gridSize = size(gridlats);
 imageSize = rfprop.internal.Validators.validateImageSize(...
     gridSize, maxImageResFactor, maxImageSize, res, 'coverage');
 
-gridlats = gridlats((length(gridlats) / 2) - 128 : (length(gridlats) / 2) + 128 , (length(gridlats) / 2) - 128 : (length(gridlats) / 2) + 128);
-gridlons = gridlons((length(gridlons) / 2) - 128 : (length(gridlons) / 2) + 128 , (length(gridlons) / 2) - 128 : (length(gridlons) / 2) + 128);
+gridlats = gridlats((idivide(length(gridlats),int32(2))) - 128 : (idivide(length(gridlats) , int32(2))) + 128 , (idivide(length(gridlats) , int32(2))) - 128 : (idivide(length(gridlats) , int32(2))) + 128);
+gridlons = gridlons((idivide(length(gridlons) , int32(2))) - 128 : (idivide(length(gridlons) , int32(2))) + 128 , (idivide(length(gridlons) , int32(2))) - 128 : (idivide(length(gridlons) , int32(2))) + 128);
 
 % Trim grid locations to those which are within data range
 [latitude, longitude] = rfprop.internal.MapUtils.georange(...
