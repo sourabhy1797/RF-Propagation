@@ -267,14 +267,14 @@ for txInd = 1:numTx
                 rxNumRays = numel(rxRays);
                 numRays(rxInd) = numel(rxRays);
                 if rxNumRays == 1
-                    txAods = [txAods rxRays.AngleOfDeparture]; %#ok<AGROW>
+                    txAods = [txAods rxRays.AngleOfDeparture]; 
                     rxsAoas{txInd,rxInd} = rxRays.AngleOfArrival; % keep in dB
                     Lpls{txInd,rxInd} = rxRays.PathLoss;
                 else
                     rxAoas_temp = zeros(2,rxNumRays);
                     Lpls_temp = zeros(rxNumRays,1);
                     for i = 1:rxNumRays
-                        txAods = [txAods rxRays(i).AngleOfDeparture]; %#ok<AGROW>
+                        txAods = [txAods rxRays(i).AngleOfDeparture]; 
                         rxAoas_temp(:,i) = rxRays(i).AngleOfArrival;
                         Lpls_temp(i) = exp(1i*rxRays(i).PhaseShift)/ ...
                             10^(rxRays(i).PathLoss/20);
